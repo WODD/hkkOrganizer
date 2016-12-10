@@ -1,0 +1,11 @@
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.csprojResolveAssemblyReference.cache
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.Form1.resources
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.Properties.Resources.resources
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.csproj.GenerateResource.Cache
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\bin\Debug\Muziek_organisatie.exe.config
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\bin\Debug\Muziek_organisatie.exe
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\bin\Debug\Muziek_organisatie.pdb
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.exe
+C:\Users\Wilbert\stack\eigen progs\hkk muziek\Muziek_organisatie\Muziek_organisatie\obj\Debug\Muziek_organisatie.pdb
