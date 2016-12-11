@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Muziek_organisatie
 {
-    class Nummer
+    public class Nummer
     {
-        public string name { get; set; }
+        public string naam { get; set; }
         public string genre { get; set; }
-        public string composer { get; set; }
+        public string auteur { get; set; }
         public bool inMap { get; set; }
         public string eersteRegel { get; set; }
+        public string nummer { get; set; }
         public List<Plaats> gespeeld { get; set; }
 
     }
 
-    class Plaats
+    public class Plaats
     {
 
         public string stadNaam { get; set; }

@@ -38,7 +38,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.voegToeBtn = new System.Windows.Forms.Button();
-            this.nummersList = new System.Windows.Forms.ListBox();
+            this.zoekIN = new System.Windows.Forms.TextBox();
+            this.zoekBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.nummersView = new System.Windows.Forms.ListView();
+            this.naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.auteur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.letterIN = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nummerIN = new System.Windows.Forms.NumericUpDown();
+            this.nummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.nummerIN)).BeginInit();
             this.SuspendLayout();
             // 
             // naamIN
@@ -72,7 +84,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(131, 117);
+            this.checkBox1.Location = new System.Drawing.Point(131, 143);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(63, 17);
             this.checkBox1.TabIndex = 4;
@@ -117,7 +129,7 @@
             // 
             // voegToeBtn
             // 
-            this.voegToeBtn.Location = new System.Drawing.Point(131, 140);
+            this.voegToeBtn.Location = new System.Drawing.Point(131, 166);
             this.voegToeBtn.Name = "voegToeBtn";
             this.voegToeBtn.Size = new System.Drawing.Size(100, 23);
             this.voegToeBtn.TabIndex = 9;
@@ -125,20 +137,123 @@
             this.voegToeBtn.UseVisualStyleBackColor = true;
             this.voegToeBtn.Click += new System.EventHandler(this.voegToeBtn_Click);
             // 
-            // nummersList
+            // zoekIN
             // 
-            this.nummersList.FormattingEnabled = true;
-            this.nummersList.Location = new System.Drawing.Point(252, 12);
-            this.nummersList.Name = "nummersList";
-            this.nummersList.Size = new System.Drawing.Size(361, 576);
-            this.nummersList.TabIndex = 10;
+            this.zoekIN.Location = new System.Drawing.Point(264, 35);
+            this.zoekIN.Name = "zoekIN";
+            this.zoekIN.Size = new System.Drawing.Size(240, 20);
+            this.zoekIN.TabIndex = 11;
+            // 
+            // zoekBtn
+            // 
+            this.zoekBtn.Location = new System.Drawing.Point(510, 35);
+            this.zoekBtn.Name = "zoekBtn";
+            this.zoekBtn.Size = new System.Drawing.Size(91, 24);
+            this.zoekBtn.TabIndex = 12;
+            this.zoekBtn.Text = "zoek";
+            this.zoekBtn.UseVisualStyleBackColor = true;
+            this.zoekBtn.Click += new System.EventHandler(this.zoekBtn_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(264, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "nummers";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "naam",
+            "genre",
+            "auteur",
+            "eerste regel",
+            "nummer",
+            "in map"});
+            this.comboBox1.Location = new System.Drawing.Point(510, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(91, 21);
+            this.comboBox1.TabIndex = 14;
+            // 
+            // nummersView
+            // 
+            this.nummersView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nummer,
+            this.naam,
+            this.genre,
+            this.auteur});
+            this.nummersView.GridLines = true;
+            this.nummersView.Location = new System.Drawing.Point(264, 65);
+            this.nummersView.Name = "nummersView";
+            this.nummersView.Size = new System.Drawing.Size(337, 517);
+            this.nummersView.TabIndex = 15;
+            this.nummersView.UseCompatibleStateImageBehavior = false;
+            this.nummersView.View = System.Windows.Forms.View.Details;
+            // 
+            // naam
+            // 
+            this.naam.Text = "naam";
+            this.naam.Width = 110;
+            // 
+            // genre
+            // 
+            this.genre.Text = "genre";
+            // 
+            // auteur
+            // 
+            this.auteur.Text = "auteur";
+            this.auteur.Width = 110;
+            // 
+            // letterIN
+            // 
+            this.letterIN.Location = new System.Drawing.Point(213, 117);
+            this.letterIN.MaxLength = 1;
+            this.letterIN.Name = "letterIN";
+            this.letterIN.Size = new System.Drawing.Size(18, 20);
+            this.letterIN.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 119);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "nummer + letter";
+            // 
+            // nummerIN
+            // 
+            this.nummerIN.Location = new System.Drawing.Point(131, 117);
+            this.nummerIN.Maximum = new decimal(new int[] {
+            276447232,
+            23283,
+            0,
+            0});
+            this.nummerIN.Name = "nummerIN";
+            this.nummerIN.Size = new System.Drawing.Size(76, 20);
+            this.nummerIN.TabIndex = 19;
+            // 
+            // nummer
+            // 
+            this.nummer.Text = "nummer";
+            this.nummer.Width = 53;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 594);
-            this.Controls.Add(this.nummersList);
+            this.Controls.Add(this.nummerIN);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.letterIN);
+            this.Controls.Add(this.nummersView);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.zoekBtn);
+            this.Controls.Add(this.zoekIN);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -150,8 +265,9 @@
             this.Controls.Add(this.genreIN);
             this.Controls.Add(this.naamIN);
             this.Name = "Form1";
-            this.Text = "in map?";
+            this.Text = "nummers";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nummerIN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,7 +285,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button voegToeBtn;
-        private System.Windows.Forms.ListBox nummersList;
+        private System.Windows.Forms.TextBox zoekIN;
+        private System.Windows.Forms.Button zoekBtn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListView nummersView;
+        private System.Windows.Forms.ColumnHeader naam;
+        private System.Windows.Forms.ColumnHeader genre;
+        private System.Windows.Forms.ColumnHeader auteur;
+        private System.Windows.Forms.TextBox letterIN;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown nummerIN;
+        private System.Windows.Forms.ColumnHeader nummer;
     }
 }
 

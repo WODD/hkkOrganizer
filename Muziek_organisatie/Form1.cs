@@ -4,15 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Muziek_organisatie
 {
     public partial class Form1 : Form
     {
-        List<Nummer> nummers= new List<Nummer>();
+        List<Nummer> nummers = new List<Nummer>();
+        string[] ja = new string[6]{ "jawel", "yes","ja", "jawel", "juist", "welzeker"};
+        string path = Application.StartupPath + @"\save.hkk";
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +25,9 @@ namespace Muziek_organisatie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            comboBox1.SelectedIndex = 0;
+            load();
+            
         }
 
         private void voegToeBtn_Click(object sender, EventArgs e)
@@ -28,24 +35,173 @@ namespace Muziek_organisatie
             string naam = naamIN.Text;
             string genre = genreIN.Text;
             string auteur = auteurIN.Text;
+            string nummer = nummerIN.Value.ToString() + letterIN.Text;
             Nummer N = new Nummer();
-            N.name = naam;
+            N.naam = naam;
             N.genre = genre;
-            N.composer = auteur;
+            N.auteur = auteur;
             N.inMap = checkBox1.Checked;
+            N.nummer = nummer;
             nummers.Add(N);
-            update(nummersList);
+            updateList(nummersView);
+           
 
         }
 
-        public void update(ListBox list)
+        public void search(string item)
+        {
+            /*
+             naam
+            genre
+            auteur  
+            eerste regel
+            nummer
+            in map
+             */
+            string input = zoekIN.Text;
+            nummersView.Items.Clear();
+            if (item == "naam")
+            {
+                foreach (Nummer n in nummers)
+                {
+                    if (n.naam.Contains(input.ToLower()))
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+            if (item == "genre")
+            {
+                foreach (Nummer n in nummers)
+                {
+                    if (n.genre.Contains(input.ToLower()))
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+            if (item == "auteur")
+            {
+                foreach (Nummer n in nummers)
+                {
+                    if (n.auteur.Contains(input.ToLower()))
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+            if (item == "eerste regel")
+            {
+                foreach (Nummer n in nummers)
+                {
+                    if (n.eersteRegel.Contains(input.ToLower()))
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+            if (item == "nummer")
+            {
+                foreach (Nummer n in nummers)
+                {
+                    if (n.nummer.Contains(input.ToLower()))
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+            if (item == "in map")
+            {
+                bool map = ja.ToString().Contains(input);
+                
+                foreach (Nummer n in nummers)
+                {
+                    if (map && n.inMap)
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                    else if(!map && !n.inMap)
+                    {
+                        AddOneList(n, nummersView);
+                    }
+                }
+            }
+        }
+        public void AddOneList(Nummer Nummer, ListView list)
+        {
+            
+            try
+            {
+                ListViewItem item = new ListViewItem(Nummer.nummer);
+                item.SubItems.Add(Nummer.naam);
+                item.SubItems.Add(Nummer.genre);
+                item.SubItems.Add(Nummer.auteur);
+                list.Items.Add(item);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void updateList(ListView list)
         {
             list.Items.Clear();
             foreach (Nummer N in nummers)
             {
-                string data = N.name + " - " + N.genre + " - " + N.composer;
-                list.Items.Add(data);
+                try
+                {
+                    ListViewItem item = new ListViewItem(N.nummer);
+                    item.SubItems.Add(N.naam);
+                    item.SubItems.Add(N.genre);
+                    item.SubItems.Add(N.auteur);
+                    list.Items.Add(item);
+
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
             }
+            updateFile();
         }
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        public void load()
+        {
+
+            string json = Base64Decode(File.ReadAllText(path));
+            if (json.Length < 0 || json == null || json == "") return;
+            Console.WriteLine(json);
+            nummers = JsonConvert.DeserializeObject<List<Nummer>>(json);
+            updateList(nummersView);
+
+        }
+
+        public void updateFile()
+        {
+            File.WriteAllText(path, string.Empty);
+            string json = JsonConvert.SerializeObject(nummers);
+            File.WriteAllText(path, Base64Encode(json));
+        }
+
+        private void zoekBtn_Click(object sender, EventArgs e)
+        {
+            
+            search(comboBox1.SelectedItem.ToString());
+        }
+        
     }
 }
