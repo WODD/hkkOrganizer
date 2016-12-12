@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.naamIN = new System.Windows.Forms.TextBox();
             this.genreIN = new System.Windows.Forms.TextBox();
             this.auteurIN = new System.Windows.Forms.TextBox();
@@ -43,13 +44,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.nummersView = new System.Windows.Forms.ListView();
+            this.nummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.auteur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.letterIN = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.nummerIN = new System.Windows.Forms.NumericUpDown();
-            this.nummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nummerIN)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,6 +194,11 @@
             this.nummersView.UseCompatibleStateImageBehavior = false;
             this.nummersView.View = System.Windows.Forms.View.Details;
             // 
+            // nummer
+            // 
+            this.nummer.Text = "nummer";
+            this.nummer.Width = 53;
+            // 
             // naam
             // 
             this.naam.Text = "naam";
@@ -236,11 +242,6 @@
             this.nummerIN.Size = new System.Drawing.Size(76, 20);
             this.nummerIN.TabIndex = 19;
             // 
-            // nummer
-            // 
-            this.nummer.Text = "nummer";
-            this.nummer.Width = 53;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +265,7 @@
             this.Controls.Add(this.auteurIN);
             this.Controls.Add(this.genreIN);
             this.Controls.Add(this.naamIN);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "nummers";
             this.Load += new System.EventHandler(this.Form1_Load);

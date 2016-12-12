@@ -15,6 +15,7 @@ namespace Muziek_organisatie
 {
     public partial class Form1 : Form
     {
+        public static bool debug = true;
         List<Nummer> nummers = new List<Nummer>();
         string[] ja = new string[6]{ "jawel", "yes","ja", "jawel", "juist", "welzeker"};
         string path = Application.StartupPath + @"\save.hkk";
@@ -35,13 +36,15 @@ namespace Muziek_organisatie
             string naam = naamIN.Text;
             string genre = genreIN.Text;
             string auteur = auteurIN.Text;
-            string nummer = nummerIN.Value.ToString() + letterIN.Text;
+            string nummer = nummerIN.Value.ToString() + letterIN.Text.ToUpper();
+            string eersteRegel = eersteRegelN.Text;
             Nummer N = new Nummer();
             N.naam = naam;
             N.genre = genre;
             N.auteur = auteur;
             N.inMap = checkBox1.Checked;
             N.nummer = nummer;
+            N.eersteRegel = eersteRegel; 
             nummers.Add(N);
             updateList(nummersView);
            
@@ -112,7 +115,7 @@ namespace Muziek_organisatie
             }
             if (item == "in map")
             {
-                bool map = ja.ToString().Contains(input);
+                bool map = input.ToLower() == "ja" || input.ToLower() == "juist";
                 
                 foreach (Nummer n in nummers)
                 {
@@ -162,7 +165,7 @@ namespace Muziek_organisatie
                 catch (Exception)
                 {
                     
-                    throw;
+                    throw; //table
                 }
             }
             updateFile();
@@ -170,11 +173,13 @@ namespace Muziek_organisatie
 
         public static string Base64Encode(string plainText)
         {
+            if (debug) return plainText;
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
         public static string Base64Decode(string base64EncodedData)
         {
+            if (debug) return base64EncodedData;
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
@@ -184,6 +189,7 @@ namespace Muziek_organisatie
 
             string json = Base64Decode(File.ReadAllText(path));
             if (json.Length < 0 || json == null || json == "") return;
+            
             Console.WriteLine(json);
             nummers = JsonConvert.DeserializeObject<List<Nummer>>(json);
             updateList(nummersView);
@@ -193,7 +199,7 @@ namespace Muziek_organisatie
         public void updateFile()
         {
             File.WriteAllText(path, string.Empty);
-            string json = JsonConvert.SerializeObject(nummers);
+            string json = JsonConvert.SerializeObject(nummers, Formatting.Indented);
             File.WriteAllText(path, Base64Encode(json));
         }
 
