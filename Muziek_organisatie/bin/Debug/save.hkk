@@ -1,0 +1,62 @@
+[
+  {
+    "naam": "mand",
+    "genre": "mand",
+    "auteur": "mand",
+    "inMap": false,
+    "eersteRegel": "mand",
+    "nummer": "0A",
+    "gespeeld": [
+      {
+        "stadNaam": "0P",
+        "kerknaam": "0k",
+        "datum": "0D"
+      },
+      {
+        "stadNaam": "1P",
+        "kerknaam": "1k",
+        "datum": "1D"
+      },
+      {
+        "stadNaam": "2P",
+        "kerknaam": "2k",
+        "datum": "2D"
+      },
+      {
+        "stadNaam": "3P",
+        "kerknaam": "3k",
+        "datum": "3D"
+      }
+    ]
+  },
+  {
+    "naam": "mand",
+    "genre": "mand",
+    "auteur": "mand",
+    "inMap": false,
+    "eersteRegel": "mand",
+    "nummer": "0A",
+    "gespeeld": [
+      {
+        "stadNaam": "0P",
+        "kerknaam": "0k",
+        "datum": "0D"
+      },
+      {
+        "stadNaam": "1P",
+        "kerknaam": "1k",
+        "datum": "1D"
+      },
+      {
+        "stadNaam": "2P",
+        "kerknaam": "2k",
+        "datum": "2D"
+      },
+      {
+        "stadNaam": "3P",
+        "kerknaam": "3k",
+        "datum": "3D"
+      }
+    ]
+  }
+]

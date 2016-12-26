@@ -44,13 +44,24 @@ namespace Muziek_organisatie
             N.auteur = auteur;
             N.inMap = checkBox1.Checked;
             N.nummer = nummer;
-            N.eersteRegel = eersteRegel; 
+            N.eersteRegel = eersteRegel;
+            N.gespeeld = new List<Plaats>();
+            for(int i = 0; i <= 3; i++)
+            {
+                N.gespeeld.Add(createPlaats(i));
+            }
             nummers.Add(N);
             updateList(nummersView);
-           
 
         }
-
+        public Plaats createPlaats(int i)
+        {
+            Plaats p = new Plaats();
+            p.datum = i.ToString() + "D";
+            p.stadNaam = i.ToString() + "P";
+            p.kerknaam = i.ToString() + "k";
+            return p;
+        }
         public void search(string item)
         {
             /*
@@ -69,6 +80,7 @@ namespace Muziek_organisatie
                 {
                     if (n.naam.Contains(input.ToLower()))
                     {
+                        
                         AddOneList(n, nummersView);
                     }
                 }
@@ -122,6 +134,7 @@ namespace Muziek_organisatie
                     if (map && n.inMap)
                     {
                         AddOneList(n, nummersView);
+                        
                     }
                     else if(!map && !n.inMap)
                     {
